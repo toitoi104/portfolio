@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('app')->namespace('App')->group(function () {
+    Route::prefix('js-trick')->namespace('JsTrick')->group(function () {
+        Route::get('/', 'IndexController@index');
+        Route::get('/change-show', 'IndexController@changeShow');
+    });
+});
